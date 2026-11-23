@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather API - CampusConnect</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>CampusConnect Weather</h1>
+    </header>
+
+    <main>
+        <h2>Belmont, NC Weather</h2>
+
+        {% if error %}
+            <p>Unable to load weather: {{ error }}</p>
+
+        {% elif weather %}
+            <p><strong>Location:</strong> {{ weather.location }}</p>
+            <p><strong>Temperature:</strong> {{ weather.temperature }} °F</p>
+            <p><strong>Wind Speed:</strong> {{ weather.wind_speed }} mph</p>
+            <p><strong>Weather Code:</strong> {{ weather.weather_code }}</p>
+            <p><strong>Last Updated:</strong> {{ weather.fetched_at }}</p>
+
+        {% else %}
+            <p>No weather information available.</p>
+        {% endif %}
+
+        <p><a href="/">Back to Dashboard</a></p>
+        <p><a href="/events">View Campus Events</a></p>
+    </main>
+</body>
+</html>
+

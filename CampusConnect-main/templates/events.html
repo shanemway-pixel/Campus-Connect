@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events - CampusConnect</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Campus Events</h1>
+    </header>
+    <main>
+        <h2>Sample Internal Events</h2>
+        <ul>
+            {% for title, location, date in internal_events %}
+                <li><strong>{{ title }}</strong> — {{ date }} @ {{ location }}<br>
+            {% endfor %}
+        </ul>
+        <!-- Added in for your scraped data -->
+        <h2>Scraped Campus Events</h2>
+        <ul>
+            {% for title, location, date, description in external_events %}
+                <li><strong>{{ title }}</strong> — {{ date }} @ {{ location }}<br>
+                <em>{{ description }}</em></li>
+            {% endfor %}
+        </ul>
+        <!-- End of additions -->
+        <a href="/api">Back to API Data</a>
+    </main>
+</body>
+</html>
